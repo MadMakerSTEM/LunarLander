@@ -87,7 +87,6 @@ int view() {
 int landed() {
   float left_edge = PADPOS-PADWIDTH;
   float right_edge = PADPOS+PADWIDTH;
-  println(theta+PI/2, CRASH_ANGLE, (2*PI)-CRASH_ANGLE);
 
   if (y+(0.19*130) >= (height-2*PADHEIGHT)/2) {
     translate(0, 0);
@@ -106,8 +105,6 @@ int landed() {
     text("YOU LANDED! YAY! :D", width/2, height/2);
     return 1;
   }
-  println("left: ", x, x-(0.1*ROCKET_SIZE), left_edge);
-  println("right: ", x, x+(0.1*ROCKET_SIZE), right_edge);
   return 0;
 }
 

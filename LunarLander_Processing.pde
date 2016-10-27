@@ -16,13 +16,10 @@ float x = 0, y = -100;
 float x_speed = 0, y_speed = 0;
 boolean exiting = false;
 
-
 void setup() {
   size(600, 500);
   setupEnvironment();
 }
-
-
 
 void draw() {
   if (exiting) {
@@ -36,19 +33,17 @@ void draw() {
   }
 }
 
+
+// EDIT THIS FUNCTION!!!
 void addPhysics() {
   // ADD GRAVITY HERE
   //if (/* THRUSTER IS ON */) {  // thruster == true
   //  // add to x_speed from x equation 
   //  // add to y_speed from y equation 
   //}
-  bounce();
   move();     // move the ship
 }
 
-void bounce() {
-  // ADD BOUNCING OFF THE WALLS CODE HERE
-}
 
 void move() {
   x += x_speed;

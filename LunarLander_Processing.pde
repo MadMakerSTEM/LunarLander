@@ -44,8 +44,8 @@ void draw() {
 
 // EDIT THIS FUNCTION!!!
 void addPhysics() {
-  // ADD GRAVITY HERE
-  //if (/* THRUSTER IS ON */) {  // thruster == true
+  // ADD GRAVITY TO Y_SPEED
+  //if (/* THRUSTER IS ON */) {  // thruster_on is true
   //  // add to x_speed from x equation 
   //  // add to y_speed from y equation 
   //}

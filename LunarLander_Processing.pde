@@ -16,6 +16,7 @@
 float x = 0, y = -100;              // start position of x and y
 float x_speed = 0, y_speed = 0;     // initial speed of x and y
 boolean exiting = false;
+boolean thruster_on = false;           // value of thruster
 final float OFFSET = 3*PI/2;        // phase offset for rotation
 
 //physics constants

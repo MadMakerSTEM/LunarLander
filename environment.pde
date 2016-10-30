@@ -8,13 +8,11 @@ float CRASHVEL = 0.5;  // threshold for crash velocity
 final float TURN_VALUE = PI/50;    
 boolean changed = false; 
 
-
 final float CRASH_ANGLE = 0.18;  // angle away from vertical in radians to decide a crash
 
 int lstatus = 0;
 
 PImage img;
-boolean thruster = false;           // value of thruster
 boolean oldthruster = false;        // previous value of the thruster
 
 boolean[] keys = new boolean[4];    // store the state of each key
@@ -34,12 +32,12 @@ void setupEnvironment() {
 
 // draw the image of the rocket ship
 void drawRocket() {
-  if (thruster && changed) {
+  if (thruster_on && changed) {
     changed = false;
     img = loadImage("rocket_flame.png");
     img.resize(ROCKET_SIZE, 0);
   } 
-  else if (!thruster && changed) {
+  else if (!thruster_on && changed) {
     changed = false;
     img = loadImage("rocket.png");
     img.resize(ROCKET_SIZE, 0);
@@ -159,9 +157,9 @@ void keyReleased() {
 
 // Decide what to do based on the state of each key
 void handleKeys() {
-  oldthruster = thruster;
-  thruster = keys[0];               // thruster is on or off
-  if (thruster != oldthruster) 
+  oldthruster = thruster_on;
+  thruster_on = keys[0];               // thruster is on or off
+  if (thruster_on != oldthruster) 
     changed = true;
   if (keys[1]) turns(-TURN_VALUE);  // LEFT
   if (keys[2]) turns(TURN_VALUE);   // RIGHT

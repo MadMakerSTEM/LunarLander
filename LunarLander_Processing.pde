@@ -37,7 +37,6 @@ void draw() {
   }
 }
 
-
 // EDIT THIS FUNCTION!!!
 void addPhysics() {
   // ADD GRAVITY HERE
@@ -48,7 +47,7 @@ void addPhysics() {
   move();     // move the ship
 }
 
-
+// move the rocket
 void move() {
   x += x_speed;
   y += y_speed;

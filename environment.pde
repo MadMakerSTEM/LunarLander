@@ -13,6 +13,12 @@ final float CRASH_ANGLE = 0.18;  // angle away from vertical in radians to decid
 int lstatus = 0;
 
 PImage img;
+PImage img_expl;
+float scaleStep = 0.05;
+final float scaleStart = 0.1;
+final float scaleMax = 5;
+float scale = scaleStart;
+float xStop,yStop;
 boolean oldthruster = false;        // previous value of the thruster
 
 boolean[] keys = new boolean[4];    // store the state of each key
@@ -22,12 +28,20 @@ void setupEnvironment() {
   translate(width/2, height/2);
   imageMode(CENTER);
   img = loadImage("rocket.png");
+  img_expl = loadImage("explosion.png");
   img.resize(ROCKET_SIZE, 0);
   if (PADPOS < 0 && PADPOS > -PADWIDTH) {
     PADPOS -=  PADWIDTH;
   } else if (PADPOS > 0 && PADPOS < PADWIDTH) {
     PADPOS +=  PADWIDTH;
   }  
+}
+
+// draw the explosion
+void drawExplosion(){
+  img_expl.resize(int(ROCKET_SIZE*scale),0);
+  image(img_expl,x,y);
+  scale+=scaleStep;
 }
 
 // draw the image of the rocket ship
@@ -76,13 +90,31 @@ int view() {
       text("Landed! YEAH! :D", 0, 0);
     } 
     else {
+      stopRocket();  //an inefficient way to stop the rocket
+      if (scale <= scaleMax){
+        drawExplosion();
+        return 0;
+      }
+      delay(1000);
       fill(255);
       background(200, 0, 0);
       text("CRASHED! :( :(", 0, 0);
+      return 1;
     }
-    return 1;
   }
   return 0;
+}
+
+// Stop rocket for when it crashes
+void stopRocket(){
+  if (scale == scaleStart){ //if first time it hits
+    xStop = x;
+    yStop = y;
+  }
+  y_speed = 0;
+  x_speed= 0;
+  x = xStop;
+  y = yStop;
 }
 
 // Check if the rocket has landed
@@ -102,7 +134,7 @@ int landed() {
       || (theta+PI/2 > CRASH_ANGLE && theta+PI/2 < (2*PI)-CRASH_ANGLE)
       ||  x-(0.13*ROCKET_SIZE) < left_edge 
       ||  x+(0.13*ROCKET_SIZE) > right_edge) {
-      text("YOU CRASHED! :(", width/2, height/2);
+      text("BOOOOOOM!", 0, 0);
       return 2;
     }
     text("YOU LANDED! YAY! :D", width/2, height/2);

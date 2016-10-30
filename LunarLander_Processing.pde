@@ -12,8 +12,8 @@
   MadMaker 2016
 */
 
-float x = 0, y = -100;
-float x_speed = 0, y_speed = 0;
+float x = 0, y = -100;              // start position of x and y
+float x_speed = 0, y_speed = 0;     // initial speed of x and y
 boolean exiting = false;
 
 //physics constants

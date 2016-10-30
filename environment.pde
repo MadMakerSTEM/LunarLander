@@ -1,7 +1,5 @@
 final int ROCKET_SIZE = 100;
-final float GRAVITY = 0.016;
-final float FRICTION = 0.99;
-final float THRUST = 0.05;
+
 
 int PADWIDTH = 40;
 int PADHEIGHT = 10;

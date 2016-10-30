@@ -16,6 +16,10 @@ float x = 0, y = -100;
 float x_speed = 0, y_speed = 0;
 boolean exiting = false;
 
+//physics constants
+final float GRAVITY = 0.016;
+final float THRUST = 0.05;
+
 void setup() {
   size(600, 500);
   setupEnvironment();

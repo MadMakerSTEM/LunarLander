@@ -8,7 +8,7 @@ float CRASHVEL = 0.5;  // threshold for crash velocity
 final float TURN_VALUE = PI/50;    
 boolean changed = false; 
 
-final float OFFSET = 3*PI/2;     // phase offset for rotation
+
 final float CRASH_ANGLE = 0.18;  // angle away from vertical in radians to decide a crash
 
 int lstatus = 0;
@@ -16,7 +16,7 @@ int lstatus = 0;
 PImage img;
 boolean thruster = false;           // value of thruster
 boolean oldthruster = false;        // previous value of the thruster
-float theta = OFFSET;               // angle offset
+
 boolean[] keys = new boolean[4];    // store the state of each key
 
 // Setup the environement, runs one in setup

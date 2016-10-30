@@ -12,13 +12,17 @@
   MadMaker 2016
 */
 
+
 float x = 0, y = -100;              // start position of x and y
 float x_speed = 0, y_speed = 0;     // initial speed of x and y
 boolean exiting = false;
+final float OFFSET = 3*PI/2;        // phase offset for rotation
 
 //physics constants
 final float GRAVITY = 0.016;
 final float THRUST = 0.05;
+
+float theta = OFFSET;               // make the variable theta for the angle of the rocket
 
 void setup() {
   size(600, 500);
